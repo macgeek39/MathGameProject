@@ -32,31 +32,27 @@ Q - Quit The Program
 
 userOption = Console.ReadKey().KeyChar;
 
-if (char.ToLower(userOption) == 'a')
+switch (char.ToLower(userOption))
 {
-    Console.WriteLine("\nAddition selected");
-}
-else if (char.ToLower(userOption) == 's')
-{
-    Console.WriteLine("\nSubtraction selected");
-}
-else if (char.ToLower(userOption) == 'm')
-{
-    Console.WriteLine("\nMultiplication selected");
-}
-else if (char.ToLower(userOption) == 'd')
-{
-    Console.WriteLine("\nDivision selected");
-}
-else if (char.ToLower(userOption) == 'v')
-{
-    Console.WriteLine("\nView previous games selected");
-}
-else if (char.ToLower(userOption) == 'q')
-{
-    Console.WriteLine("\nByeeeeeeeeeeeeee!!");
-}
-else
-{
-    Console.WriteLine("\nInvalid input");
+    case 'a':
+        Console.WriteLine("Addition Selected");
+        break;
+    case 's':
+        Console.WriteLine("Subtraction selected");
+        break;
+    case 'm':
+        Console.WriteLine("Multiplication selected");
+        break;
+    case 'd':
+        Console.WriteLine("Division selected");
+        break;
+    case 'v':
+        Console.WriteLine("View previous games selected");
+        break;
+    case 'q':
+        Console.WriteLine("Goodbye");
+        break;
+    default:
+        Console.WriteLine("Invalid input");
+        break;
 }
