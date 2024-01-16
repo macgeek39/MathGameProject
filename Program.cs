@@ -27,7 +27,36 @@ S - Subtraction
 M - Multiplication
 D - Division
 V - View Previous Games
+Q - Quit The Program
 {divider}");
 
 userOption = Console.ReadKey().KeyChar;
-Console.WriteLine($"\nYou chose the option: {userOption}");
+
+if (char.ToLower(userOption) == 'a')
+{
+    Console.WriteLine("\nAddition selected");
+}
+else if (char.ToLower(userOption) == 's')
+{
+    Console.WriteLine("\nSubtraction selected");
+}
+else if (char.ToLower(userOption) == 'm')
+{
+    Console.WriteLine("\nMultiplication selected");
+}
+else if (char.ToLower(userOption) == 'd')
+{
+    Console.WriteLine("\nDivision selected");
+}
+else if (char.ToLower(userOption) == 'v')
+{
+    Console.WriteLine("\nView previous games selected");
+}
+else if (char.ToLower(userOption) == 'q')
+{
+    Console.WriteLine("\nByeeeeeeeeeeeeee!!");
+}
+else
+{
+    Console.WriteLine("\nInvalid input");
+}
