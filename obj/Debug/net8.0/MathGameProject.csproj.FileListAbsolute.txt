@@ -1,0 +1,15 @@
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\bin\Debug\net8.0\MathGameProject.exe
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\bin\Debug\net8.0\MathGameProject.deps.json
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\bin\Debug\net8.0\MathGameProject.runtimeconfig.json
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\bin\Debug\net8.0\MathGameProject.dll
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\bin\Debug\net8.0\MathGameProject.pdb
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\obj\Debug\net8.0\MathGameProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\obj\Debug\net8.0\MathGameProject.AssemblyInfoInputs.cache
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\obj\Debug\net8.0\MathGameProject.AssemblyInfo.cs
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\obj\Debug\net8.0\MathGameProject.csproj.CoreCompileInputs.cache
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\obj\Debug\net8.0\MathGameProject.sourcelink.json
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\obj\Debug\net8.0\MathGameProject.dll
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\obj\Debug\net8.0\refint\MathGameProject.dll
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\obj\Debug\net8.0\MathGameProject.pdb
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\obj\Debug\net8.0\MathGameProject.genruntimeconfig.cache
+C:\Users\taiwe\Documents\cSharp\MathGameProjectApp\MathGameProject\obj\Debug\net8.0\ref\MathGameProject.dll
