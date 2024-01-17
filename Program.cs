@@ -59,25 +59,39 @@ switch (char.ToLower(userOption))
 
 void AdditionGame(string message)
 {
-    Console.Clear();
 
     var random  = new Random();
     var score = 0;
 
-    int firstNumber = random.Next(1, 9);
-    int secondNumber = random.Next(1, 9);
+    int firstNumber;
+    int secondNumber;
 
-    Console.WriteLine($"{firstNumber} + {secondNumber}");
-    var result = Console.ReadLine();
+    Console.WriteLine($"\n{divider}");
+    Console.WriteLine($"How many times would you like to play?");
+    
+    var numberOfRounds = int.Parse( Console.ReadLine() );
 
-    if (int.Parse(result) == firstNumber + secondNumber)
+    for (int i =0; i < numberOfRounds; i++)
     {
-        Console.WriteLine("Correct!");
-        score++;
-    } else
-    {
-        Console.WriteLine("Incorrect");
+        firstNumber = random.Next(1, 9);
+        secondNumber = random.Next(1, 9);
+
+        Console.WriteLine($"{firstNumber} + {secondNumber}");
+        var result = Console.ReadLine();
+
+        if (int.Parse(result) == firstNumber + secondNumber)
+        {
+            Console.WriteLine("Your answer was correct!");
+            score++;
+            Console.WriteLine(divider);
+        }
+        else
+        {
+            Console.WriteLine("Your answer was incorrect!");
+            Console.WriteLine(divider);
+        }
     }
+    Console.WriteLine($"Game over. Your final score is {score} out of {numberOfRounds}");
 }
 
 void SubtractionGame(string message)
