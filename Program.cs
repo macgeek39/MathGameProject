@@ -59,7 +59,25 @@ switch (char.ToLower(userOption))
 
 void AdditionGame(string message)
 {
-    Console.WriteLine(message);
+    Console.Clear();
+
+    var random  = new Random();
+    var score = 0;
+
+    int firstNumber = random.Next(1, 9);
+    int secondNumber = random.Next(1, 9);
+
+    Console.WriteLine($"{firstNumber} + {secondNumber}");
+    var result = Console.ReadLine();
+
+    if (int.Parse(result) == firstNumber + secondNumber)
+    {
+        Console.WriteLine("Correct!");
+        score++;
+    } else
+    {
+        Console.WriteLine("Incorrect");
+    }
 }
 
 void SubtractionGame(string message)
