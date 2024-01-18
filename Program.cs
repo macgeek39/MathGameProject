@@ -35,16 +35,16 @@ userOption = Console.ReadKey().KeyChar;
 switch (char.ToLower(userOption))
 {
     case 'a':
-        AdditionGame("You're playing an addition game");
+        AdditionGame();
         break;
     case 's':
-        SubtractionGame("You're playing a subtraction game");
+        SubtractionGame();
         break;
     case 'm':
-        MultiplicationGame("You're playing a multiplication game");
+        MultiplicationGame();
         break;
     case 'd':
-        DivisionGame("You're playing a division game");
+        DivisionGame();
         break;
     case 'v':
         ViewPreviousGames("List of Games");
@@ -57,7 +57,7 @@ switch (char.ToLower(userOption))
         break;
 }
 
-void AdditionGame(string message)
+void AdditionGame()
 {
 
     var random  = new Random();
@@ -94,22 +94,50 @@ void AdditionGame(string message)
     Console.WriteLine($"Game over. Your final score is {score} out of {numberOfRounds}");
 }
 
-void SubtractionGame(string message)
+void SubtractionGame()
 {
-    Console.WriteLine(message);
+    Console.WriteLine();
 }
 
-void MultiplicationGame(string message)
+void MultiplicationGame()
 {
-    Console.WriteLine(message);
+    Console.WriteLine();
 }
 
-void DivisionGame(string message)
+void DivisionGame()
 {
-    Console.WriteLine(message);
+    Console.WriteLine($"How many times would you like to play?");
+    var numberOfRounds = int.Parse(Console.ReadLine() );
+
+    for (int i =0;i < numberOfRounds; i++)
+    {
+        var divisionNumbers = GetDivisionNumbers();
+    }
+
 }
 
 void ViewPreviousGames(string message)
 {
     Console.WriteLine(message);
+}
+
+
+int[] GetDivisionNumbers()
+{
+    var random = new Random();
+    var firstNumber = random.Next(1, 99);
+    var secondNumber = random.Next(1, 99);
+
+    var result = new int[2];
+
+    while (firstNumber % secondNumber != 0)
+    {
+        firstNumber = random.Next(1, 99);
+        secondNumber = random.Next(1, 99);
+    }
+
+    result[0] = firstNumber;
+    result[1] = secondNumber;
+
+    return result;
 }
