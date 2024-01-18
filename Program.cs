@@ -2,13 +2,14 @@
 
 
 
-Console.WriteLine("What's your name?");
-var name = Console.ReadLine();
+Console.WriteLine($"What's your name?");
+string name = Console.ReadLine();
 DateTime date = DateTime.Now;
-var gamesPlayed = 0;
+int gamesPlayed = 0;
 char userOption;
 decimal averageScore;
-var isScoreEmpty = true;
+bool isScoreEmpty = true;
+List<string> gamesHistory = new();
 
 Console.WriteLine(@$"{divider}
 Hello {name}! 
@@ -18,60 +19,64 @@ That's great that you're working on improving yourself!");
 Console.WriteLine(divider);
 Console.WriteLine("Press any key to continue.");
 Console.ReadLine();
-Console.Clear();
-Console.WriteLine($"Games played: {gamesPlayed}");
-Console.WriteLine(@$"What game would you like to play?
-{divider}
+
+var isGameOn = true;
+
+do
+{
+    Console.Clear();
+    Console.WriteLine($"Games played: {gamesPlayed}");
+    Console.WriteLine(@"What game would you like to play?
 A - Addition
 S - Subtraction
 M - Multiplication
 D - Division
 V - View Previous Games
-Q - Quit The Program
-{divider}");
+Q - Quit The Program");
 
-userOption = Console.ReadKey().KeyChar;
+    userOption = Console.ReadKey().KeyChar;
 
-switch (char.ToLower(userOption))
-{
-    case 'a':
-        AdditionGame();
-        break;
-    case 's':
-        SubtractionGame();
-        break;
-    case 'm':
-        MultiplicationGame();
-        break;
-    case 'd':
-        DivisionGame();
-        break;
-    case 'v':
-        ViewPreviousGames("List of Games");
-        break;
-    case 'q':
-        Console.WriteLine("Goodbye");
-        break;
-    default:
-        Console.WriteLine("Invalid input");
-        break;
-}
-
+    switch (char.ToLower(userOption))
+    {
+        case 'a':
+            AdditionGame();
+            break;
+        case 's':
+            SubtractionGame();
+            break;
+        case 'm':
+            MultiplicationGame();
+            break;
+        case 'd':
+            DivisionGame();
+            break;
+        case 'v':
+            ViewPreviousGames("List of Games");
+            break;
+        case 'q':
+            Console.WriteLine("Goodbye");
+            isGameOn = false;
+            break;
+        default:
+            Console.WriteLine("Invalid input");
+            break;
+    }
+    gamesPlayed++;
+} while (isGameOn);
 void AdditionGame()
 {
 
-    var random  = new Random();
+    Console.Clear();
+    var random = new Random();
     var score = 0;
 
     int firstNumber;
     int secondNumber;
 
-    Console.WriteLine($"\n{divider}");
     Console.WriteLine($"How many times would you like to play?");
-    
-    var numberOfRounds = int.Parse( Console.ReadLine() );
+    var numberOfRounds = int.Parse(Console.ReadLine());
 
-    for (int i =0; i < numberOfRounds; i++)
+    for (int i = 0; i < numberOfRounds; i++)
     {
         firstNumber = random.Next(1, 9);
         secondNumber = random.Next(1, 9);
@@ -81,17 +86,19 @@ void AdditionGame()
 
         if (int.Parse(result) == firstNumber + secondNumber)
         {
-            Console.WriteLine("Your answer was correct!");
+            Console.WriteLine($"Your answer was correct.");
             score++;
-            Console.WriteLine(divider);
         }
         else
         {
-            Console.WriteLine("Your answer was incorrect!");
-            Console.WriteLine(divider);
+            Console.WriteLine($"Your answer was incorrect.");
         }
     }
-    Console.WriteLine($"Game over. Your final score is {score} out of {numberOfRounds}");
+
+    Console.WriteLine($"Game over. Your final score is {score} out of {numberOfRounds}. Press any key to go back to main menu.");
+    Console.ReadKey();
+
+    gamesHistory.Add($"{DateTime.Now} - Addition - Score: {score} out of {numberOfRounds}");
 }
 
 void SubtractionGame()
@@ -106,38 +113,55 @@ void MultiplicationGame()
 
 void DivisionGame()
 {
-    Console.WriteLine($"How many times would you like to play?");
+    Console.WriteLine($"\nHow many times would you like to play?");
     var numberOfRounds = int.Parse(Console.ReadLine() );
 
     for (int i =0;i < numberOfRounds; i++)
     {
         var divisionNumbers = GetDivisionNumbers();
-    }
+        int[] GetDivisionNumbers()
+        {
+            var random = new Random();
+            var firstNumber = random.Next(1, 99);
+            var secondNumber = random.Next(1, 99);
 
+            var result = new int[2];
+
+            while (firstNumber % secondNumber != 0)
+            {
+                firstNumber = random.Next(1, 99);
+                secondNumber = random.Next(1, 99);
+            }
+
+            result[0] = firstNumber;
+            result[1] = secondNumber;
+
+            return result;
+        }
+    }
+    
 }
 
 void ViewPreviousGames(string message)
 {
-    Console.WriteLine(message);
-}
-
-
-int[] GetDivisionNumbers()
-{
-    var random = new Random();
-    var firstNumber = random.Next(1, 99);
-    var secondNumber = random.Next(1, 99);
-
-    var result = new int[2];
-
-    while (firstNumber % secondNumber != 0)
+    Console.Clear();
+    if (gamesHistory.Count == 0)
     {
-        firstNumber = random.Next(1, 99);
-        secondNumber = random.Next(1, 99);
+        Console.WriteLine("No game have been played yet. Press any key to go back to main menu.");
+        Console.ReadKey();
+        return;
     }
 
-    result[0] = firstNumber;
-    result[1] = secondNumber;
+    Console.WriteLine("Games List");
+    Console.WriteLine("------------------------------------");
+    foreach (var game in gamesHistory)
+    {
+        Console.WriteLine(game);
+    }
+    Console.WriteLine("------------------------------------");
 
-    return result;
+    Console.WriteLine($"\nPress any key to go back to main menu.");
+    Console.ReadKey();
 }
+
+
